@@ -110,7 +110,7 @@ function LoginPage() {
 
                         </Formik>
                         <p className="text-center">
-                            New users? <a href="/register">Click Here</a>
+                            New users? <Link to="/register">Click Here</Link>
                         </p>
                     </div>
 
