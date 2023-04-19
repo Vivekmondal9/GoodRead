@@ -11,7 +11,8 @@ function RegisterPage() {
 
     const [responseData, setResponseData] = useState({
         responseText: "",
-        responseClass: ""
+        responseClass: "",
+        flag:false
 
     })
     const initialValues = {
@@ -44,12 +45,17 @@ function RegisterPage() {
                     setResponseData({
                         responseText: response.data.message,
                         responseClass: "alert alert-success",
+                        flag:true
                     });
+                    setTimeout(()=>{
+                        navigate("/login",true)
+                    },1000)
                 },
                 (error) => {
                     setResponseData({
                         responseText: error.message,
                         responseClass: "alert alert-danger",
+                        flag:false
                     });
                 }
             )
