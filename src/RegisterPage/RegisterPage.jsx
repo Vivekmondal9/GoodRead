@@ -11,7 +11,8 @@ function RegisterPage() {
 
     const [responseData, setResponseData] = useState({
         responseText: "",
-        responseClass: ""
+        responseClass: "",
+        flag:false
 
     })
     const initialValues = {
@@ -28,7 +29,11 @@ function RegisterPage() {
         lastName: Yup.string("Please Enter a valid Name").required("First Name is required."),
         email: Yup.string().email("Enter a Valid email address.").required("Email is required."),
         mobile: Yup.number("Enter a valid mobile Number").required("Number is required"),
-        password: Yup.string().required("Password is required").min(6, "Password must contain 6 Minimum charecters")
+        password: Yup.string().required("Password is required").min(6, "Password must contain 6 Minimum charecters").matches(
+
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+            "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+          )
     })
 
     function onSubmit(values, { resetForm }) {
@@ -44,12 +49,17 @@ function RegisterPage() {
                     setResponseData({
                         responseText: response.data.message,
                         responseClass: "alert alert-success",
+                        flag:true
                     });
+                    setTimeout(()=>{
+                        navigate("/login",true)
+                    },1000)
                 },
                 (error) => {
                     setResponseData({
                         responseText: error.message,
                         responseClass: "alert alert-danger",
+                        flag:false
                     });
                 }
             )
