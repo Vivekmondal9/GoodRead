@@ -1,9 +1,12 @@
+import BookDetail from "../BookDetail/BookDetail";
 import Navbar from "../Navbar/Navbar";
 import BookData from "../data/Bookdata";
 import Book from "./Book/Book";
 
 
 function Booklist() {
+
+ 
 
     return (
         <div>
