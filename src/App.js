@@ -9,6 +9,8 @@ import CategoryList from './CategoryList/CategoryList';
 import AboutPage from './AboutPage/AboutPage';
 import ContactUs from './Contact/ContactUs';
 import ProtectedRoute from './routes/ProtectedRoute';
+import BookDetail from './BookDetail/BookDetail';
+import CartPage from './CartPages/CartPage';
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
        <Route path='/contact' element={<ProtectedRoute Component={ContactUs}></ProtectedRoute>}></Route>
        <Route path='/login' element={<LoginPage></LoginPage>}></Route>
        <Route path='/register' element={<RegisterPage></RegisterPage>}></Route>
+       <Route path='/bookdetail' element={<BookDetail></BookDetail>}></Route>
+       <Route path='/cart' element={<ProtectedRoute Component={CartPage}></ProtectedRoute>}></Route>
       </Routes>
     </Router>
     // <div className="App">
