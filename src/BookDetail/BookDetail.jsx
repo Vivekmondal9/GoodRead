@@ -26,9 +26,9 @@ function BookDetail() {
             <div className="container">
                 <div className="row">
                     <div className="col-md-3">
-                        <div className="card">
+                        <div className="card-image">
                         {prod.map((p)=>(
-                            <img src={p.image}></img>
+                            <img src={p.image} ></img>
                         ))}
                         </div>
 
